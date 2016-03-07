@@ -1,0 +1,1956 @@
+# $1 = queue name:  eventsEXP eventsDLQ mtsEXP mtsDLQ customerCareEXP customerCareDLQ mosEXP mosDLQ moPreprocessQueueEXP moPreprocessQueueDLQ  eventsQueue mtsQueue mosQueue  customerCareQueue moPreprocessQueue  creditQueue  creditDLQ creditEXP viettelCmdQueue viettelCmdQueueEXP viettelCmdQueueDLQ onLimitMoSmsQueue onLimitMoSmsQueueDLQ onLimitMoSmsQueueEXP 
+# $2 = attribute: MessageCount ConsumerCount MessagesAdded
+
+
+#!/bin/sh
+
+SCRIPTS_HOME=/home/nagios/monitoring/libexec/CUSTOM/QUEUES_INFORMATION_VERSION2_LIVE_2_USER_PROMO_TWO/
+STORAGE_HOME=/home/nagios/monitoring/libexec/CUSTOM/QUEUES_INFORMATION_VERSION2_LIVE_2_USER_PROMO_TWO
+
+for i in creditQueue eventsQueue mosQueue tknRedeemReqQueue asyncBillingQueue billingOptoutQueue chargingQueue customerCareQueue dlrQueue mtsQueue onLimitMoSmsQueue mosEXP ivrProcessQueue moPreprocessQueue moPreprocessQueueEXP billingOptoutQueueEXP mtsEXP onLimitMoSmsQueueEXP asyncBillingQueueEXP chargingQueueEXP dlrQueueEXP tknRedeemReqQueueEXP ivrProcessEXP creditEXP customerCareEXP eventsEXP billingOptoutQueueDLQ onLimitMoSmsQueueDLQ tknRedeemReqQueueDLQ customerCareDLQ mosDLQ mtsDLQ chargingQueueDLQ dlrQueueDLQ moPreprocessQueueDLQ asyncBillingQueueDLQ eventsDLQ creditDLQ ivrProcessDLQ externalChargingQueue externalChargingQueueDLQ externalChargingQueueEXP
+do
+        for j in MessagesAdded MessageCount ConsumerCount
+        do
+                cat "$STORAGE_HOME"/RESULT_SPAWN | grep -A 2 $i | grep $j | tail -1 | awk -F"=" {'print $2'} | awk -F";" {'print $1'} > "$STORAGE_HOME"/AATEMP_"$i"_"$j"
+        done
+done
+wait
+
+for i in creditQueue eventsQueue mosQueue tknRedeemReqQueue asyncBillingQueue billingOptoutQueue chargingQueue customerCareQueue dlrQueue mtsQueue onLimitMoSmsQueue mosEXP ivrProcessQueue moPreprocessQueue moPreprocessQueueEXP billingOptoutQueueEXP mtsEXP onLimitMoSmsQueueEXP asyncBillingQueueEXP chargingQueueEXP dlrQueueEXP tknRedeemReqQueueEXP ivrProcessEXP creditEXP customerCareEXP eventsEXP billingOptoutQueueDLQ onLimitMoSmsQueueDLQ tknRedeemReqQueueDLQ customerCareDLQ mosDLQ mtsDLQ chargingQueueDLQ dlrQueueDLQ moPreprocessQueueDLQ asyncBillingQueueDLQ eventsDLQ creditDLQ ivrProcessDLQ externalChargingQueue externalChargingQueueDLQ externalChargingQueueEXP
+do
+echo -e `date +%d_%m_%y_%T`" "  `cat "$SCRIPTS_HOME"/AATEMP_"$i"_MessagesAdded` " " `cat "$SCRIPTS_HOME"/AATEMP_"$i"_MessageCount`  " "  `cat "$SCRIPTS_HOME"/AATEMP_"$i"_ConsumerCount`  > "$SCRIPTS_HOME"/"$i"_FINAL
+done 
+
+
+
+paste $SCRIPTS_HOME/creditQueue_FINAL $SCRIPTS_HOME/creditEXP_FINAL $SCRIPTS_HOME/creditDLQ_FINAL > $SCRIPTS_HOME/CREDIT
+paste $SCRIPTS_HOME/eventsQueue_FINAL $SCRIPTS_HOME/eventsEXP_FINAL $SCRIPTS_HOME/eventsDLQ_FINAL > $SCRIPTS_HOME/EVENTS
+paste $SCRIPTS_HOME/mosQueue_FINAL $SCRIPTS_HOME/mosEXP_FINAL $SCRIPTS_HOME/mosDLQ_FINAL > $SCRIPTS_HOME/MOS
+paste $SCRIPTS_HOME/tknRedeemReqQueue_FINAL $SCRIPTS_HOME/tknRedeemReqQueueEXP_FINAL $SCRIPTS_HOME/tknRedeemReqQueueDLQ_FINAL > $SCRIPTS_HOME/TKNREDEEMREQUEUE
+paste $SCRIPTS_HOME/asyncBillingQueue_FINAL $SCRIPTS_HOME/asyncBillingQueueEXP_FINAL $SCRIPTS_HOME/asyncBillingQueueDLQ_FINAL > $SCRIPTS_HOME/ASYNCBILLING
+paste $SCRIPTS_HOME/billingOptoutQueue_FINAL $SCRIPTS_HOME/billingOptoutQueueEXP_FINAL $SCRIPTS_HOME/billingOptoutQueueDLQ_FINAL > $SCRIPTS_HOME/BILLINGOPTOUT
+paste $SCRIPTS_HOME/chargingQueue_FINAL $SCRIPTS_HOME/chargingQueueEXP_FINAL $SCRIPTS_HOME/chargingQueueDLQ_FINAL > $SCRIPTS_HOME/CHARGING
+paste $SCRIPTS_HOME/customerCareQueue_FINAL $SCRIPTS_HOME/customerCareEXP_FINAL $SCRIPTS_HOME/customerCareDLQ_FINAL > $SCRIPTS_HOME/CUSTOMER_CARE
+paste $SCRIPTS_HOME/dlrQueue_FINAL $SCRIPTS_HOME/dlrQueueEXP_FINAL  $SCRIPTS_HOME/dlrQueueDLQ_FINAL >  $SCRIPTS_HOME/DLR
+paste $SCRIPTS_HOME/mtsQueue_FINAL $SCRIPTS_HOME/mtsEXP_FINAL  $SCRIPTS_HOME/mtsDLQ_FINAL > $SCRIPTS_HOME/MTS
+paste $SCRIPTS_HOME/ivrProcessQueue_FINAL $SCRIPTS_HOME/ivrProcessEXP_FINAL $SCRIPTS_HOME/ivrProcessDLQ_FINAL > $SCRIPTS_HOME/IVR
+paste $SCRIPTS_HOME/onLimitMoSmsQueue_FINAL $SCRIPTS_HOME/onLimitMoSmsQueueEXP_FINAL  $SCRIPTS_HOME/onLimitMoSmsQueueDLQ_FINAL >  $SCRIPTS_HOME/ONLIMITMOSMS
+paste $SCRIPTS_HOME/moPreprocessQueue_FINAL $SCRIPTS_HOME/moPreprocessQueueEXP_FINAL $SCRIPTS_HOME/moPreprocessQueueDLQ_FINAL > $SCRIPTS_HOME/MOPREPROCESS
+paste $SCRIPTS_HOME/externalChargingQueue_FINAL  $SCRIPTS_HOME/externalChargingQueueEXP_FINAL $SCRIPTS_HOME/externalChargingQueueDLQ_FINAL > $SCRIPTS_HOME/EXTERNALCHARGING
+
+wait
+
+
+externalChargingQueue_ConsumerCount_value=10
+externalChargingQueue_MessageCount_throttling_value_warning=2000
+externalChargingQueue_MessageCount_throttling_value_critical=3000
+externalChargingQueue_MessagesAdded_difference_value=1
+externalChargingQueue_MessagesAdded_previous_file_index=$3
+
+
+creditQueue_ConsumerCount_value=10
+creditQueue_MessageCount_throttling_value_warning=2000
+creditQueue_MessageCount_throttling_value_critical=3000
+creditQueue_MessagesAdded_difference_value=1
+creditQueue_MessagesAdded_previous_file_index=$3
+
+eventsQueue_ConsumerCount_value=1
+eventsQueue_MessageCount_throttling_value_warning=10000
+eventsQueue_MessageCount_throttling_value_critical=30000
+eventsQueue_MessagesAdded_difference_value=1
+eventsQueue_MessagesAdded_previous_file_index=$3
+
+mosQueue_ConsumerCount_value=10
+mosQueue_MessageCount_throttling_value_warning=100
+mosQueue_MessageCount_throttling_value_critical=500
+mosQueue_MessagesAdded_difference_value=1
+mosQueue_MessagesAdded_previous_file_index=$3
+
+tknRedeemReqQueue_ConsumerCount_value=10
+tknRedeemReqQueue_MessageCount_throttling_value_warning=100
+tknRedeemReqQueue_MessageCount_throttling_value_critical=500
+tknRedeemReqQueue_MessagesAdded_difference_value=1
+tknRedeemReqQueue_MessagesAdded_previous_file_index=$3
+
+asyncBillingQueue_ConsumerCount_value=10
+asyncBillingQueue_MessageCount_throttling_value_warning=100
+asyncBillingQueue_MessageCount_throttling_value_critical=500
+asyncBillingQueue_MessagesAdded_difference_value=1
+asyncBillingQueue_MessagesAdded_previous_file_index=$3
+
+billingOptoutQueue_ConsumerCount_value=10
+billingOptoutQueue_MessageCount_throttling_value_warning=100
+billingOptoutQueue_MessageCount_throttling_value_critical=500
+billingOptoutQueue_MessagesAdded_difference_value=1
+billingOptoutQueue_MessagesAdded_previous_file_index=$3
+
+customerCareQueue_ConsumerCount_value=2
+customerCareQueue_MessageCount_throttling_value_warning=100
+customerCareQueue_MessageCount_throttling_value_critical=500
+customerCareQueue_MessagesAdded_difference_value=1
+customerCareQueue_MessagesAdded_previous_file_index=$3
+
+dlrQueue_ConsumerCount_value=10
+dlrQueue_MessageCount_throttling_value_warning=100
+dlrQueue_MessageCount_throttling_value_critical=500
+dlrQueue_MessagesAdded_difference_value=1
+dlrQueue_MessagesAdded_previous_file_index=$3
+
+mtsQueue_ConsumerCount_value=7
+mtsQueue_MessageCount_throttling_value_warning=100
+mtsQueue_MessageCount_throttling_value_critical=1000
+mtsQueue_MessagesAdded_difference_value=1
+mtsQueue_MessagesAdded_previous_file_index=$3
+
+ivrProcessQueue_ConsumerCount_value=6
+ivrProcessQueue_MessageCount_throttling_value_warning=1000
+ivrProcessQueue_MessageCount_throttling_value_critical=2500
+ivrProcessQueue_MessagesAdded_difference_value=1
+ivrProcessQueue_MessagesAdded_previous_file_index=$3
+
+onLimitMoSmsQueue_ConsumerCount_value=10
+onLimitMoSmsQueue_MessageCount_throttling_value_warning=2000
+onLimitMoSmsQueue_MessageCount_throttling_value_critical=3000
+onLimitMoSmsQueue_MessagesAdded_difference_value=1
+onLimitMoSmsQueue_MessagesAdded_previous_file_index=$3
+
+moPreprocessQueue_ConsumerCount_value=6
+moPreprocessQueue_MessageCount_throttling_value_warning=1000
+moPreprocessQueue_MessageCount_throttling_value_critical=2500
+moPreprocessQueue_MessagesAdded_difference_value=1
+moPreprocessQueue_MessagesAdded_previous_file_index=$3
+
+tknRedeemReqQueueEXP_MessageCount_throttling_value_warning=1
+tknRedeemReqQueueEXP_MessageCount_throttling_value_critical=5
+tknRedeemReqQueueDLQ_MessageCount_throttling_value_warning=1
+tknRedeemReqQueueDLQ_MessageCount_throttling_value_critical=5
+
+asyncBillingQueueEXP_MessageCount_throttling_value_warning=1
+asyncBillingQueueEXP_MessageCount_throttling_value_critical=5
+asyncBillingQueueDLQ_MessageCount_throttling_value_warning=1
+asyncBillingQueueDLQ_MessageCount_throttling_value_critical=5
+
+billingOptoutQueueEXP_MessageCount_throttling_value_warning=1
+billingOptoutQueueEXP_MessageCount_throttling_value_critical=5
+billingOptoutQueueDLQ_MessageCount_throttling_value_warning=1
+billingOptoutQueueDLQ_MessageCount_throttling_value_critical=5
+
+chargingQueueEXP_MessageCount_throttling_value_warning=1
+chargingQueueEXP_MessageCount_throttling_value_critical=5
+chargingQueueDLQ_MessageCount_throttling_value_warning=1
+chargingQueueDLQ_MessageCount_throttling_value_critical=5
+
+dlrQueueEXP_MessageCount_throttling_value_warning=1
+dlrQueueEXP_MessageCount_throttling_value_critical=5
+dlrQueueDLQ_MessageCount_throttling_value_warning=1
+dlrQueueDLQ_MessageCount_throttling_value_critical=5
+
+
+eventsEXP_MessageCount_throttling_value_warning=1
+eventsEXP_MessageCount_throttling_value_critical=5
+eventsDLQ_MessageCount_throttling_value_warning=1
+eventsDLQ_MessageCount_throttling_value_critical=5
+
+creditEXP_MessageCount_throttling_value_warning=1
+creditEXP_MessageCount_throttling_value_critical=5
+creditDLQ_MessageCount_throttling_value_warning=20
+creditDLQ_MessageCount_throttling_value_critical=50
+
+mtsEXP_MessageCount_throttling_value_warning=1
+mtsEXP_MessageCount_throttling_value_critical=5
+mtsDLQ_MessageCount_throttling_value_warning=1
+mtsDLQ_MessageCount_throttling_value_critical=5
+
+customerCareEXP_MessageCount_throttling_value_warning=1
+customerCareEXP_MessageCount_throttling_value_critical=5
+customerCareDLQ_MessageCount_throttling_value_warning=2
+customerCareDLQ_MessageCount_throttling_value_critical=5
+
+mosEXP_MessageCount_throttling_value_warning=1
+mosEXP_MessageCount_throttling_value_critical=5
+mosDLQ_MessageCount_throttling_value_warning=1
+mosDLQ_MessageCount_throttling_value_critical=5
+
+moPreprocessQueueEXP_MessageCount_throttling_value_warning=1
+moPreprocesQueueEXP_MessageCount_throttling_value_critical=5
+moPreprocessQueueDLQ_MessageCount_throttling_value_warning=1
+moPreprocessQueueDLQ_MessageCount_throttling_value_critical=5
+
+ivrProcessEXP_MessageCount_throttling_value_warning=1
+ivrProcessEXP_MessageCount_throttling_value_critical=5
+ivrProcessDLQ_MessageCount_throttling_value_warning=1
+ivrProcessDLQ_MessageCount_throttling_value_critical=5
+
+onLimitMoSmsQueueEXP_MessageCount_throttling_value_warning=1
+onLimitMoSmsQueueEXP_MessageCount_throttling_value_critical=5
+onLimitMoSmsQueueDLQ_MessageCount_throttling_value_warning=1
+onLimitMoSmsQueueDLQ_MessageCount_throttling_value_critical=5
+
+
+externalChargingQueueEXP_MessageCount_throttling_value_warning=1
+externalChargingQueueEXP_MessageCount_throttling_value_critical=5
+externalChargingQueueDLQ_MessageCount_throttling_value_warning=1
+externalChargingQueueDLQ_MessageCount_throttling_value_critical=5
+
+
+
+function copy()
+{
+for i in MOS MTS EVENTS CUSTOMER_CARE CREDIT  IVR TKNREDEEMREQUEUE ASYNCBILLING BILLINGOPTOUT CHARGING DLR ONLIMITMOSMS MOPREPROCESS EXTERNALCHARGING
+do
+  cp -f  "$SCRIPTS_HOME"/"$i"_PREVIOUS_4 "$SCRIPTS_HOME"/"$i"_PREVIOUS_5
+	cp -f "$SCRIPTS_HOME"/"$i"_PREVIOUS_3  "$SCRIPTS_HOME"/"$i"_PREVIOUS_4
+	cp -f "$SCRIPTS_HOME"/"$i"_PREVIOUS_2  "$SCRIPTS_HOME"/"$i"_PREVIOUS_3
+	cp -f "$SCRIPTS_HOME"/"$i"_PREVIOUS_1  "$SCRIPTS_HOME"/"$i"_PREVIOUS_2
+	cp -f "$SCRIPTS_HOME"/$i  "$SCRIPTS_HOME"/"$i"_PREVIOUS_1
+done
+}
+
+
+
+################# mosQueue ##############################
+case  $1  in
+	mosQueue)       
+    		case  $2  in
+			MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MOS  | awk {'print $3'}`
+                        if [ $var -gt $mosQueue_MessageCount_throttling_value_warning  ]
+                        then
+				if [ $var -gt $mosQueue_MessageCount_throttling_value_critical ]
+				then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $mosQueue_MessageCount_throttling_value_critical "
+					exit 2
+				else
+				echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $mosQueue_MessageCount_throttling_value_warning"
+					exit 1;
+				fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $mosQueue_MessageCount_throttling_value_warning"
+				exit 0;
+                        fi
+			;;
+
+                #######################fi
+			ConsumerCount)
+			var=`cat "$SCRIPTS_HOME"/MOS  | awk {'print $4'}`
+			if [ $var -eq $mosQueue_ConsumerCount_value ]
+			then
+				echo -e "$1 consumers are OK - value: $var"
+				exit 0;
+			else
+                        	echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $mosQueue_ConsumerCount_value"
+                                exit 2;
+			fi
+			;;
+			
+			MessagesAdded)
+			file="$SCRIPTS_HOME"/MOS_PREVIOUS_"$mosQueue_MessagesAdded_previous_file_index"
+			current=`cat "$SCRIPTS_HOME"/MOS | awk {'print $2'}`
+			previous=`cat $file | awk {'print $2'}`
+			var=`expr $current - $previous`
+			if [ $var -ge $mosQueue_MessagesAdded_difference_value ]
+                        then
+				copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+				copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $mosQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+			;;
+			*) 
+				echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+				exit 2;
+
+		esac
+		;;
+                
+
+        	mosEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MOS  | awk {'print $7'}`
+                        if [ $var -gt $mosEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $mosEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $mosEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $mosEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $mosEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	mosDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MOS  | awk {'print $11'}`
+                        if [ $var -gt $mosDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $mosDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $mosDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $mosDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $mosDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+########################################################### moPreprocessQueue ####################################
+	moPreprocessQueue)       
+		case  $2  in
+			MessageCount)
+                       	var=`cat "$SCRIPTS_HOME"/MOPREPROCESS  | awk {'print $3'}`
+                        if [ $var -gt $moPreprocessQueue_MessageCount_throttling_value_warning  ]
+                        	then
+				if [ $var -gt $moPreprocessQueue_MessageCount_throttling_value_critical ]
+				then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $moPreprocessQueue_MessageCount_throttling_value_critical "
+					exit 2
+				else
+				echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $moPreprocessQueue_MessageCount_throttling_value_warning"
+					exit 1;
+				fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $moPreprocessQueue_MessageCount_throttling_value_warning"
+				exit 0;
+                        fi
+			;;
+
+			ConsumerCount)
+			var=`cat "$SCRIPTS_HOME"/MOPREPROCESS  | awk {'print $4'}`
+			if [ $var -eq $moPreprocessQueue_ConsumerCount_value ]
+			then
+				echo -e "$1 consumers are OK - value: $var"
+				exit 0;
+			else
+                        	echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $moPreprocessQueue_ConsumerCount_value"
+                                exit 2;
+			fi
+			;;
+			
+			MessagesAdded)
+			file="$SCRIPTS_HOME"/MOPREPROCESS_PREVIOUS_"$moPreprocessQueue_MessagesAdded_previous_file_index"
+			current=`cat "$SCRIPTS_HOME"/MOPREPROCESS | awk {'print $2'}`
+			previous=`cat $file | awk {'print $2'}`
+			var=`expr $current - $previous`
+			if [ $var -ge $moPreprocessQueue_MessagesAdded_difference_value ]
+                        then
+				copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+				copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $moPreprocessQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+			;;
+			*) 
+				echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+				exit 2;
+
+		esac
+		;;
+
+
+        	moPreprocessQueueEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MOPREPROCESS  | awk {'print $7'}`
+                        if [ $var -gt $moPreprocessQueueEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $moPreprocessQueueEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $moPreprocessQueueEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $moPreprocessQueueEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $moPreprocessQueueEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	moPreprocessQueueDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MOPREPROCESS  | awk {'print $11'}`
+                        if [ $var -gt $moPreprocessQueueDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $moPreprocessQueueDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $moPreprocessQueueDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $moPreprocessQueueDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $moPreprocessQueueDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+################################################################ ivrProcessQueue ############################################
+
+	ivrProcessQueue)       
+		case  $2  in
+			MessageCount)
+                       	var=`cat "$SCRIPTS_HOME"/IVR  | awk {'print $3'}`
+                        if [ $var -gt $ivrProcessQueue_MessageCount_throttling_value_warning  ]
+                        	then
+				if [ $var -gt $ivrProcessQueue_MessageCount_throttling_value_critical ]
+				then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $ivrProcessQueue_MessageCount_throttling_value_critical "
+					exit 2
+				else
+				echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $ivrProcessQueue_MessageCount_throttling_value_warning"
+					exit 1;
+				fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $ivrProcessQueue_MessageCount_throttling_value_warning"
+				exit 0;
+                        fi
+			;;
+
+			ConsumerCount)
+			var=`cat "$SCRIPTS_HOME"/IVR  | awk {'print $4'}`
+			if [ $var -eq $ivrProcessQueue_ConsumerCount_value ]
+			then
+				echo -e "$1 consumers are OK - value: $var"
+				exit 0;
+			else
+                        	echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $ivrProcessQueue_ConsumerCount_value"
+                                exit 2;
+			fi
+			;;
+			
+			MessagesAdded)
+			file="$SCRIPTS_HOME"/IVR_PREVIOUS_"$moPreprocessQueue_MessagesAdded_previous_file_index"
+			current=`cat "$SCRIPTS_HOME"/IVR | awk {'print $2'}`
+			previous=`cat $file | awk {'print $2'}`
+			var=`expr $current - $previous`
+			if [ $var -ge $ivrProcessQueue_MessagesAdded_difference_value ]
+                        then
+				copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+				copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $ivrProcessQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+			;;
+			*) 
+				echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+				exit 2;
+
+		esac
+		;;
+
+
+        	ivrProcessEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/IVR  | awk {'print $7'}`
+                        if [ $var -gt $ivrProcessEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $ivrProcessEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $ivrProcessEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $ivrProcessEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $ivrProcessEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	ivrProcessDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/IVR  | awk {'print $11'}`
+                        if [ $var -gt $ivrProcessDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $ivrProcessDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $ivrProcessDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $ivrProcessDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $ivrProcessDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######################################     creditQueue        ##################################################
+
+      creditQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CREDIT  | awk {'print $3'}`
+                        if [ $var -gt $creditQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $creditQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $creditQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $creditQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $creditQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/CREDIT  | awk {'print $4'}`
+                        if [ $var -eq $creditQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $creditQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/CREDIT_PREVIOUS_"$creditQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/CREDIT | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $creditQueue_MessagesAdded_difference_value ]
+                        then
+                                copy
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $creditQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+                 creditEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CREDIT  | awk {'print $7'}`
+                        if [ $var -gt $creditEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $creditEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $creditEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $creditEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $creditEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+                creditDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CREDIT  | awk {'print $11'}`
+                        if [ $var -gt $creditDLQ_MessageCount_throttling_value_warning ]
+                        then
+                                if [ $var -gt $creditDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $creditDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $creditDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $creditDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+###################################    mtsQueue            ##################################################
+
+
+        mtsQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MTS  | awk {'print $3'}`
+                        if [ $var -gt $mtsQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $mtsQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $mtsQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $mtsQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $mtsQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/MTS  | awk {'print $4'}`
+                        if [ $var -eq $mtsQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $mtsQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/MTS_PREVIOUS_"$mtsQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/MTS | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $mtsQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $mtsQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+        	mtsEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MTS  | awk {'print $7'}`
+                        if [ $var -gt $mtsEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $mtsEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $mtsEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $mtsEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $mtsEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	mtsDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/MTS  | awk {'print $11'}`
+                        if [ $var -gt $mtsDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $mtsDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $mtsDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $mtsDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $mtsDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+#############################################  eventsQueue   ###################################################
+
+        eventsQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/EVENTS  | awk {'print $3'}`
+                        if [ $var -gt $eventsQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $eventsQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $eventsQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $eventsQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $eventsQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/EVENTS  | awk {'print $4'}`
+                        if [ $var -eq $eventsQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $eventsQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/EVENTS_PREVIOUS_"$eventsQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/EVENTS | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $eventsQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $eventsQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+
+                esac
+                ;;
+
+        	eventsEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/EVENTS  | awk {'print $7'}`
+                        if [ $var -gt $eventsEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $eventsEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $eventsEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $eventsEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is  $var - throttling: $eventsEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	eventsDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/EVENTS  | awk {'print $11'}`
+                        if [ $var -gt $eventsDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $eventsDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $eventsDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $eventsDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $eventsDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+#################################################  onLimitMoSmsQueue  ###################################################   
+        onLimitMoSmsQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/ONLIMITMOSMS  | awk {'print $3'}`
+                        if [ $var -gt $onLimitMoSmsQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $onLimitMoSmsQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $onLimitMoSmsQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $onLimitMoSmsQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $onLimitMoSmsQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/ONLIMITMOSMS  | awk {'print $4'}`
+                        if [ $var -eq $onLimitMoSmsQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $onLimitMoSmsQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/VIETTEL_CMD_PREVIOUS_"$onLimitMoSmsQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/VIETTEL_CMD | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $onLimitMoSmsQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $onLimitMoSmsQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+
+                esac
+                ;;
+
+               
+        	onLimitMoSmsQueueEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/ONLIMITMOSMS  | awk {'print $7'}`
+                        if [ $var -gt $onLimitMoSmsQueueEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $onLimitMoSmsQueueEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $onLimitMoSmsQueueEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $onLimitMoSmsQueueEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $onLimitMoSmsQueueEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	onLimitMoSmsQueueDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/ONLIMITMOSMS  | awk {'print $11'}`
+                        if [ $var -gt $onLimitMoSmsQueueDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $onLimitMoSmsQueueDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $onLimitMoSmsQueueDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $onLimitMoSmsQueueDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $onLimitMoSmsQueueDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+###############################################  customerCareQueue  #####################################################
+
+        customerCareQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CUSTOMER_CARE  | awk {'print $3'}`
+                        if [ $var -gt $customerCareQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $customerCareQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $customerCareQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $customerCareQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $customerCareQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/CUSTOMER_CARE  | awk {'print $4'}`
+                        if [ $var -eq $customerCareQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $customerCareQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/CUSTOMER_CARE_PREVIOUS_"$customerCareQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/CUSTOMER_CARE | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $customerCareQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $customerCareQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED.111"
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	customerCareEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CUSTOMER_CARE  | awk {'print $7'}`
+                        if [ $var -gt $customerCareEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $customerCareEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $customerCareEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $customerCareEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $customerCareEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+        	customerCareDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CUSTOMER_CARE  | awk {'print $11'}`
+                        if [ $var -gt $customerCareDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $customerCareDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $customerCareDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $customerCareDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is$var - throttling: $customerCareDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+###############################################  tknRedeemReqQueue  #####################################################
+
+        tknRedeemReqQueueQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/TKNREDEEMREQUEUE  | awk {'print $3'}`
+                        if [ $var -gt $tknRedeemReqQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $tknRedeemReqQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $tknRedeemReqQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $tknRedeemReqQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $tknRedeemReqQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/TKNREDEEMREQUEUE  | awk {'print $4'}`
+                        if [ $var -eq $tknRedeemReqQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $tknRedeemReqQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/TKNREDEEMREQUEUE_PREVIOUS_"$tknRedeemReqQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/TKNREDEEMREQUEUE | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $tknRedeemReqQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $tknRedeemReqQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED.111"
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	customerCareEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/TKNREDEEMREQUEUE  | awk {'print $7'}`
+                        if [ $var -gt $tknRedeemReqQueueEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $tknRedeemReqQueueEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $tknRedeemReqQueueEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $tknRedeemReqQueueEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $tknRedeemReqQueueEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+        	customerCareDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/TKNREDEEMREQUEUE  | awk {'print $11'}`
+                        if [ $var -gt $tknRedeemReqQueueDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $tknRedeemReqQueueDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $tknRedeemReqQueueDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $tknRedeemReqQueueDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is$var - throttling: $tknRedeemReqQueueDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+###############################################  billingOptoutQueue  #####################################################
+
+        billingOptoutQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/BILLINGOPTOUT  | awk {'print $3'}`
+                        if [ $var -gt $billingOptoutQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $billingOptoutQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $billingOptoutQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $billingOptoutQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $billingOptoutQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/BILLINGOPTOUT  | awk {'print $4'}`
+                        if [ $var -eq $billingOptoutQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $billingOptoutQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/BILLINGOPTOUT_PREVIOUS_"$billingOptoutQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/BILLINGOPTOUT | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $billingOptoutQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $billingOptoutQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED.111"
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	billingOptoutQueueEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/BILLINGOPTOUT  | awk {'print $7'}`
+                        if [ $var -gt $billingOptoutQueueEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $billingOptoutQueueEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $billingOptoutQueueEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $billingOptoutQueueEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $billingOptoutQueueEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	billingOptoutQueueDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/BILLINGOPTOUT  | awk {'print $11'}`
+                        if [ $var -gt $billingOptoutQueueDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $billingOptoutQueueDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $billingOptoutQueueDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $billingOptoutQueueDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is$var - throttling: $billingOptoutQueueDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###############################################  chargingQueue  #####################################################
+
+        chargingQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CHARGING  | awk {'print $3'}`
+                        if [ $var -gt $chargingQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $chargingQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $chargingQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $chargingQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $chargingQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/CHARGING  | awk {'print $4'}`
+                        if [ $var -eq $chargingQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $chargingQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/CHARGING_PREVIOUS_"$chargingQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/CHARGING | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $chargingQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $chargingQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED.111"
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	chargingQueueEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CHARGING  | awk {'print $7'}`
+                        if [ $var -gt $chargingQueueEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $chargingQueueEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $chargingQueueEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $chargingQueueEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $chargingQueueEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	chargingQueueDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/CHARGING  | awk {'print $11'}`
+                        if [ $var -gt $chargingQueueDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $chargingQueueDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $chargingQueueDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $chargingQueueDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is$var - throttling: $chargingQueueDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###############################################  dlrQueue  #####################################################
+
+        dlrQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/DLR  | awk {'print $3'}`
+                        if [ $var -gt $dlrQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $dlrQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $dlrQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $dlrQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $dlrQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/DLR  | awk {'print $4'}`
+                        if [ $var -eq $dlrQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $dlrQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/DLR_PREVIOUS_"$dlrQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/DLR | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $dlrQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $dlrQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED.111"
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	dlrQueueEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/DLR  | awk {'print $7'}`
+                        if [ $var -gt $dlrQueueEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $dlrQueueEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $dlrQueueEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $dlrQueueEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $dlrQueueEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	dlrQueueDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/DLR  | awk {'print $11'}`
+                        if [ $var -gt $dlrQueueDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $dlrQueueDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $dlrQueueDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $dlrQueueDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is$var - throttling: $dlrQueueDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###############################################  dlrQueue  #####################################################
+
+        externalChargingQueue)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/EXTERNALCHARGING  | awk {'print $3'}`
+                        if [ $var -gt $externalChargingQueue_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $externalChargingQueue_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $externalChargingQueue_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $externalChargingQueue_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $externalChargingQueue_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                        ConsumerCount)
+                        var=`cat "$SCRIPTS_HOME"/EXTERNALCHARGING  | awk {'print $4'}`
+                        if [ $var -eq $externalChargingQueue_ConsumerCount_value ]
+                        then
+                                echo -e "$1 consumers are OK - value: $var"
+                                exit 0;
+                        else
+                                echo -e "Queue $1 - CRITICAL!! - consumers are - NOT OK - value: $var - expected: $externalChargingQueue_ConsumerCount_value"
+                                exit 2;
+                        fi
+                        ;;
+
+                        MessagesAdded)
+                        file="$SCRIPTS_HOME"/EXTERNALCHARGING_PREVIOUS_"$externalChargingQueue_MessagesAdded_previous_file_index"
+                        current=`cat "$SCRIPTS_HOME"/DLR | awk {'print $2'}`
+                        previous=`cat $file | awk {'print $2'}`
+                        var=`expr $current - $previous`
+                        if [ $var -ge $externalChargingQueue_MessagesAdded_difference_value ]
+                        then
+                                copy  
+                                echo -e "$1 MessagesAdded has difference from previous metric - difference: $var"
+                                exit 0;
+                        else
+                                copy  
+                                echo -e "Queue $1 - CRITICAL!! - MessagesAdded was not changed from the previous $externalChargingQueue_MessagesAdded_previous_file_index check value: $current "
+                                exit 2;
+                        fi
+
+                        ;;
+                        *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED.111"
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	externalChargingQueueEXP)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/EXTERNALCHARGING  | awk {'print $7'}`
+                        if [ $var -gt $externalChargingQueueEXP_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $externalChargingQueueEXP_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $externalChargingQueueEXP_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $externalChargingQueueEXP_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is $var - throttling: $externalChargingQueueEXP_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+        	externalChargingQueueDLQ)
+                case  $2  in
+                        MessageCount)
+                        var=`cat "$SCRIPTS_HOME"/EXTERNALCHARGING  | awk {'print $11'}`
+                        if [ $var -gt $externalChargingQueueDLQ_MessageCount_throttling_value_warning  ]
+                        then
+                                if [ $var -gt $externalChargingQueueDLQ_MessageCount_throttling_value_critical ]
+                                then
+                                echo -e "Queue $1 - CRITICAL!! - $1 MessageCount is $var greater than $externalChargingQueueDLQ_MessageCount_throttling_value_critical "
+                                        exit 2
+                                else
+                                echo -e "Queue $1 - WARNING! - $1 MessageCount is $var greater than $externalChargingQueueDLQ_MessageCount_throttling_value_warning"
+                                        exit 1;
+                                fi
+                        else
+                                echo -e "OK - $1 MessageCount is$var - throttling: $externalChargingQueueDLQ_MessageCount_throttling_value_warning"
+                                exit 0;
+                        fi
+                        ;;
+
+                                                *)
+                                echo -e "Queue $1 - CRITICAL!! - AN UNEXPECTED ERROR OCCURED."
+                                exit 2;
+
+                esac
+                ;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		*)              
+                                echo -e "CRITICAL!! - AN UNEXPECTED ERROR OCCURED ON THE SCRIPT."
+                                exit 2;
+
+esac 
+

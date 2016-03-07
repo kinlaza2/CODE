@@ -1,0 +1,435 @@
+spawn /usr/java/jdk1.6.0_26/bin/java -jar /home/nagios/monitoring/libexec/CUSTOM/QUEUES_INFORMATION_VERSION2_LIVE_2_USERPROMOFOUR//jmxterm-1.0-alpha-4-uber.jar -l 192.168.100.205:3705
+Welcome to JMX terminal. Type "help" for available commands.
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueue",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueue",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueueDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueueDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueueDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueueDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueueDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueueDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueueEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueueEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueueEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueueEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="asyncBillingQueueEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="asyncBillingQueueEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueue",type=Queue:
+ConsumerCount = 1;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueue",type=Queue:
+MessagesAdded = 9;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueueDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueueDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueueDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueueDLQ",type=Queue:
+MessagesAdded = 8;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueueDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueueDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueueEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueueEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueueEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueueEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="billingOptoutQueueEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="billingOptoutQueueEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="chargingQueue",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="chargingQueue",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="chargingQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueueDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="chargingQueueDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueueDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="chargingQueueDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueueDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="chargingQueueDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueueEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="chargingQueueEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueueEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="chargingQueueEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="chargingQueueEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="chargingQueueEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="creditDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="creditDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="creditDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="creditEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="creditEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="creditEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="creditQueue",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="creditQueue",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="creditQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="creditQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="customerCareDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="customerCareDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="customerCareDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="customerCareDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="customerCareDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="customerCareDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="customerCareEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="customerCareEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="customerCareEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="customerCareEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="customerCareEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="customerCareEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="customerCareQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="customerCareQueue",type=Queue:
+ConsumerCount = 2;
+
+$>get -b org.hornetq:module=JMS,name="customerCareQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="customerCareQueue",type=Queue:
+MessagesAdded = 9089;
+
+$>get -b org.hornetq:module=JMS,name="customerCareQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="customerCareQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="eventsDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="eventsDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="eventsDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="eventsDLQ",type=Queue:
+MessagesAdded = 129;
+
+$>get -b org.hornetq:module=JMS,name="eventsDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="eventsDLQ",type=Queue:
+MessageCount = 127;
+
+$>get -b org.hornetq:module=JMS,name="eventsEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="eventsEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="eventsEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="eventsEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="eventsEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="eventsEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="eventsQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="eventsQueue",type=Queue:
+ConsumerCount = 1;
+
+$>get -b org.hornetq:module=JMS,name="eventsQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="eventsQueue",type=Queue:
+MessagesAdded = 62209;
+
+$>get -b org.hornetq:module=JMS,name="eventsQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="eventsQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueue",type=Queue:
+ConsumerCount = 1;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueue",type=Queue:
+MessagesAdded = 457;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueueDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueueDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueueDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueueDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueueDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueueDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueueEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueueEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueueEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueueEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="externalChargingQueueEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="externalChargingQueueEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueue",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueue",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueueDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueueDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueueDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueueDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueueDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueueDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueueEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueueEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueueEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueueEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="moPreprocessQueueEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="moPreprocessQueueEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mosDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="mosDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mosDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="mosDLQ",type=Queue:
+MessagesAdded = 1;
+
+$>get -b org.hornetq:module=JMS,name="mosDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="mosDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mosEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="mosEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mosEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="mosEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="mosEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="mosEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mosQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="mosQueue",type=Queue:
+ConsumerCount = 10;
+
+$>get -b org.hornetq:module=JMS,name="mosQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="mosQueue",type=Queue:
+MessagesAdded = 344;
+
+$>get -b org.hornetq:module=JMS,name="mosQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="mosQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mtsDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="mtsDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mtsDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="mtsDLQ",type=Queue:
+MessagesAdded = 6;
+
+$>get -b org.hornetq:module=JMS,name="mtsDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="mtsDLQ",type=Queue:
+MessageCount = 1;
+
+$>get -b org.hornetq:module=JMS,name="mtsEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="mtsEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mtsEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="mtsEXP",type=Queue:
+MessagesAdded = 19;
+
+$>get -b org.hornetq:module=JMS,name="mtsEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="mtsEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="mtsQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="mtsQueue",type=Queue:
+ConsumerCount = 18;
+
+$>get -b org.hornetq:module=JMS,name="mtsQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="mtsQueue",type=Queue:
+MessagesAdded = 49389;
+
+$>get -b org.hornetq:module=JMS,name="mtsQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="mtsQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueue",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueue",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueueDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueueDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueueDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueueDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueueDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueueDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueueEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueueEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueueEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueueEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="onLimitMoSmsQueueEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="onLimitMoSmsQueueEXP",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueue",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueue",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueue",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueue",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueue",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueue",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueueDLQ",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueueDLQ",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueueDLQ",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueueDLQ",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueueDLQ",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueueDLQ",type=Queue:
+MessageCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueueEXP",type=Queue ConsumerCount 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueueEXP",type=Queue:
+ConsumerCount = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueueEXP",type=Queue MessagesAdded 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueueEXP",type=Queue:
+MessagesAdded = 0;
+
+$>get -b org.hornetq:module=JMS,name="tknRedeemReqQueueEXP",type=Queue MessageCount 
+#mbean = org.hornetq:module=JMS,name="tknRedeemReqQueueEXP",type=Queue:
+MessageCount = 0;
+
+$>

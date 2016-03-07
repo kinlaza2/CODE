@@ -1,0 +1,5 @@
+SCRIPTS_HOME=//home/nagios/monitoring/libexec/CUSTOM/QUEUES_INFORMATION_VERSION2_LIVE_2_USERLIVE/
+rm -rf $SCRIPTS_HOME/AATEMP_* $SCRIPTS_HOME/*_FINAL nohup.out 
+
+
+

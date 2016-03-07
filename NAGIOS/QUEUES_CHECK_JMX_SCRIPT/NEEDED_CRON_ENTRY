@@ -1,0 +1,1 @@
+*/2 * * * * /home/nagios/monitoring/libexec/CUSTOM/QUEUES_INFORMATION_VERSION2_STAGING/CREATE_RESULT_SPAWN.sh
