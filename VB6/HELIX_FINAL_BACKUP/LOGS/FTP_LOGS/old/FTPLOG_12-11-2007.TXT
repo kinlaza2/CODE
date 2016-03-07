@@ -1,0 +1,9 @@
+ftp> Invalid command.
+ftp> velti
+Invalid command.
+ftp> ftpv3lt1
+Not connected.
+ftp> bin
+Not connected.
+ftp> mput *.*
+bye

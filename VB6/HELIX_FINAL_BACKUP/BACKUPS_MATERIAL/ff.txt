@@ -1,0 +1,38 @@
+Extract frame
+
+ 
+
+ffmpeg –i C:\HELIX\OUTPUT\17-04-2007\82.3gp –vframes 1 xx%d.jpg
+
+ 
+
+Convert to flv
+
+ 
+
+ffmpeg –i C:\HELIX\OUTPUT\17-04-2007\82.3gp c:\xxx.avi
+
+ 
+
+Streaming server:
+
+ 
+
+\\akoutsovassilis\downloads\multimedia\setup-red5-0.6rc2.exe
+
+ 
+
+Flv player:
+
+ 
+
+http://flowplayer.sourceforge.net/index.html
+
+ 
+
+To see about a video press
+
+ 
+
+ffmpeg –i xxx.3gp
+

@@ -1,0 +1,25 @@
+
+<audience xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <version>11.0</version>
+
+  <audienceName>rm82kbps 1</audienceName>
+
+  <audienceAvgBitRate>82000</audienceAvgBitRate>
+
+  <information></information>
+
+  <audienceMaxBitRate>92000</audienceMaxBitRate>
+
+  <videoEncoder xsi:type="realVideo9">
+    <keyFramePeriodInMs>5000</keyFramePeriodInMs>
+    <encodingComplexity>high</encodingComplexity>
+    <maxFrameRate>10.000000</maxFrameRate>
+    <videoMode>normal</videoMode>
+  </videoEncoder>
+
+  <audioEncoder xsi:type="realAudio">
+    <codecFlavor>cook1</codecFlavor>
+  </audioEncoder>
+
+</audience>

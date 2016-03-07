@@ -1,0 +1,3 @@
+Total # of free bytes        : 6025273344
+Total # of bytes             : 32002846720
+Total # of avail free bytes  : 6025273344

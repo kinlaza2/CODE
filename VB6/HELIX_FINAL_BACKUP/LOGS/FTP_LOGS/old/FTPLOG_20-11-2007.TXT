@@ -1,0 +1,11 @@
+Connected to 212.152.70.17.
+220 ProFTPD 1.3.0a Server (ProFTPD Default Installation) [10.9.113.29]
+User (212.152.70.17:(none)): 
+331 Password required for velti!!.
+
+530 Login incorrect.
+ftp> bin
+530 Please login with USER and PASS
+ftp> mput *.*
+530 Please login with USER and PASS
+ftp> bye

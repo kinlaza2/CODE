@@ -1,0 +1,64 @@
+
+<job build="547" exportType="realMedia" version="11.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <clipInformation>
+    <title></title>
+    <author></author>
+    <copyright></copyright>
+    <mediaKeywords></mediaKeywords>
+    <description></description>
+    <mediaRating>Not rated</mediaRating>
+  </clipInformation>
+
+  <inputs>
+    <input xsi:type="avFileInput">
+      <fileName>C:\t\sample.avi</fileName>
+      <prefilters>
+        <audioPreFilters/>
+        <videoPreFilters>
+          <enableResize>true</enableResize>
+          <resizeWidth>176</resizeWidth>
+          <resizeHeight>144</resizeHeight>
+        </videoPreFilters>
+      </prefilters>
+    </input>
+  </inputs>
+
+  <outputs>
+    <fileOutput>
+      <fileName>C:\Documents and Settings\nlazarou\Desktop\sample.rm</fileName>
+    </fileOutput>
+  </outputs>
+
+  <encodingParameters>
+    <rateControlMode>cbr</rateControlMode>
+    <numberOfPass>2</numberOfPass>
+    <encodeVideo>true</encodeVideo>
+    <encodeAudio>true</encodeAudio>
+    <exportSettings>
+      <MTUSize>1400</MTUSize>
+      <lossProtection>false</lossProtection>
+      <latencyMode>Normal</latencyMode>
+      <maxStartupLatency>4000</maxStartupLatency>
+    </exportSettings>
+    <audiences>
+      <audience>
+        <version>11.0</version>
+        <audienceName>60k EDGE Music</audienceName>
+        <audienceAvgBitRate>25000</audienceAvgBitRate>
+        <information></information>
+        <audienceMaxBitRate>70000</audienceMaxBitRate>
+        <videoEncoder xsi:type="realVideo9">
+          <keyFramePeriodInMs>5000</keyFramePeriodInMs>
+          <encodingComplexity>high</encodingComplexity>
+          <maxFrameRate>10.000000</maxFrameRate>
+          <videoMode>normal</videoMode>
+        </videoEncoder>
+        <audioEncoder xsi:type="realAudio">
+          <codecFlavor>cook0</codecFlavor>
+        </audioEncoder>
+      </audience>
+    </audiences>
+  </encodingParameters>
+
+</job>

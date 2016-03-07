@@ -1,0 +1,4 @@
+- VPN with company through OTENET and HOL
+- all need it bookmarks to be setup.
+- ssh applications
+

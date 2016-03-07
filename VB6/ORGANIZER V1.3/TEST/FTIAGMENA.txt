@@ -1,0 +1,96 @@
+************************************* VERSION  1 *******************************************
+1)SOSTOS YPOLOGISMOS YPOLOIPON STHN KARTELA
+
+2)KOYMPI PRINT SE FORM7
+
+4) NA GINETAI DIORTHOSI STON ARITHMO TIMOLOGIOY(TORA DEN GINETAI)
+
+5) NA GINETAI DIORTHOSI STON ARITHMO EPITAGHS(TORA DEN GINETAI)
+
+6) DHMIOYRGIA BACK UP (*)
+
+7)NA BGAINEI TO ATHROISMA ME KATHE KRITIRIO POY BAZO STHN EYRESH TIMOLOGIOY.
+
+
+8) ма цуяисы та сглеиа (п.в глеяокоцио) ста опоиа цяажы йатеухеиам сто DATAGRID, ма цяажы
+   се TEXT BOXES йаи ма епийуяымы кеитоуяциа ле йоулпиа. 
+
+9) отам дглиоуяцы лиа меа етаияиа йаи патгсы йатеухеиам йаятекка тоте то пяоцяалла сйаеи.
+   ауто ма диояхыхеи.
+
+
+11) отам амоицеи глеяокоцио ха пяепеи ма амоицеи стгм сглеяимг глеяолгмиа. отам амоицеи леса
+    апо тилокоциа, тоте ха пяепеи ам евеи дохеи йапоиа глеяолгмиа епитацгс ма амоицеи се аутг
+    тгм глеяолгмиа аккиыс ма амоицеи стгм сглеяимг.
+12) NA BAкы диояхысг стом тгкежымийо йатакоцо йаи ма апAцояеусы апеухеиас пяоспекасг тоу DATAGRID.
+
+13) NA BAкы диояхысг стис ETAIRIES йаи ма апAцояеусы апеухеиас пяоспекасг тоу DATAGRID.
+
+14) NA FTIAKSO TIS THESEIS TON FORMON ETSI OSTE NA EINAI STANTAR EITE SE MINIMIZE HTE SE MAXIMIZE
+
+15) ENA SHMEIO POY UA MPOREIS NA BGAZEIS TIMES APO TIMOLOGIA. P.X 123/ARITHMO  
+    TEMAXION + 19% + 20% =
+
+16) ма бакы вяылата
+
+18) опоу евеи вягсилотгта ле дипко йкий се DATAGRID NA METAжеяете то йеилемо се тевт BOX
+    п.в пеяиптысеис диацяажгс ╧ еуяесгс опоу то омола циа диацяажг упаявеи се DATAGRID
+
+18) NA TROPOPOIHSO KAI OTI ISXYEI GIA TA KOYMPIA EPISTROFHS NA ISXYEI KAI GIA FORM_UNLOAD
+
+
+
+
+19) ма жяомтисы опоу пяепеи г лиа жояла ма се одгцеи стгм аккг поу хес (вягсг HIDE) циа ма лгм 
+    пеяисеуоум авягстес жоялес амоийтес
+
+----екецвои:------------------------------------
+0) ока тA DATAGRID NA EINAI ETSI OPOS AYTO STHN EMFANISH TIMOLOGION. DHLADH TO HEIGHT TOYS NA EPANA-
+   PROSDIORIZETAI ANALOGA ME TON ARITHMO TON EGRAFON MEXRI ENA SHMEIO OPOY PLEON THA EINAI STATHERO
+   (DES FORM6) 
+
+1) ма екецны ма еимаи еимаи окес ои глеяолгмиес паяалетяопоиглемес йаи ови ле тилес п.в ма лгм
+упаявеи йапоу 2005 акка ма ояифетаи паяалетяопоиглема. ауто ма цимеи циа окес тис жоялес.
+
+2) ма екецны окес тис жоялес йаи опоу евы диадяолес ле C:\... ма тис цуяисы се APP.PATH & ...
+
+3) ма цимоум ока та TEXT TRIM KAI UCASE
+
+4) OLES OI EPIKEFALIDES TON FORMVN NA EXOYN TITLO.NA EINAI MINROS GIA NA XORA OTAN KANO MINIMIZE
+
+5) ма йамы еуамацмысто том йыдийа.
+
+6) ма екецны ма упаявоум памтоу лумглата п.в хекете ма йамете ауто ма пяовыягсг ╧ г еццяажг
+   пяацлатопоигхгйе, лумглата епибаибеысгс опыс еимаи ема лумгла кахоус ╧ йяисилгс кеитоуяциас 
+   SE VBCRITICAL.
+
+7) NA ELEGKSO TA SHMEIA OPOY APO DATAGID ME DIPLO KLIK PERNAO TO TEXT SE ENA TEXT BOX ч се ема LISTBOX
+   AYTA THELO NA ELEGXTHOYN OS PROS THN SOSTH LEITOYRGIA. P.X STHN MAZIKH EKSOFLISI TIMOLOGION.
+
+
+8) енамткгтийос екецвос тгс FORM2(тгкежымийос йатакоцос) йаи епилекеиа аутгс
+
+9)енамткгтийос екецвос тгс FORM3(етаияиес) йаи епилекеиа аутгс
+
+10)енамткгтийос екецвос тгс FORM4(тилокоциа) йаи епилекеиа аутгс йахыс йаи том жоялым поу светифомтаи ле
+   аутг жояла 6, жояла 7, жояла 8 
+
+11)енамткгтийос екецвос тгс FORM HMEROLOGIO йаи епилекеиа аутгс
+
+(*) OTAN окойкгяысы та 8,9,10,11 тоте ломо ма пяовыягсы стгм дглиоуяциа тоу BACKUP
+
+12)епилекеиа жоялас 8
+
+
+
+13)енамткгтийос екецвос йаи епилекеиа тгс жоялас h поу амтоистгвг стис йаятекес 1,2
+
+14)енамткгтийос екецвос йаи епилекеиа тгс жоялас PROXEIRO поу амтоистгвг стгм йаятека пяовеияо
+
+15)енамткгтийос екецвос йаи епилекеиа тгс жоялас YPOL_TIMON KAI YPOL_TIMON2
+
+16) то текеутаио пяацла поу пяепеи ма жтиавтеи еимаи то BACK UP. сумепыс лемеи о енамткгтийос
+    екецвос йаи епилекеиа окым тым жоялым поу светифомтаи ле то BACKUP
+
+
+17) NA YPARXEI PANTOY ON ERROR ETSI OSTE NA MHN SKAEI TO PROGRAMMA SE RUN TIME

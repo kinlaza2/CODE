@@ -1,0 +1,120 @@
+Connected to 212.152.70.17.
+220 ProFTPD 1.3.0a Server (ProFTPD Default Installation) [10.9.113.39]
+User (212.152.70.17:(none)): 
+331 Password required for velti.
+
+230 User velti logged in.
+ftp> bin
+200 Type set to I
+ftp> mput *.*
+200 PORT command successful
+150 Opening BINARY mode data connection for .license
+226 Transfer complete.
+ftp: 18 bytes sent in 0,00Seconds 18000,00Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for AEmp3.dll
+226 Transfer complete.
+ftp: 172032 bytes sent in 0,63Seconds 275,25Kbytes/sec.
+Error opening local file audiences.
+200 PORT command successful
+150 Opening BINARY mode data connection for authwrapper_dll4.dll
+226 Transfer complete.
+ftp: 315392 bytes sent in 2,63Seconds 120,15Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for authwrapper_dll6.dll
+226 Transfer complete.
+ftp: 376832 bytes sent in 4,69Seconds 80,40Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for DefaultLogo.png
+226 Transfer complete.
+ftp: 693 bytes sent in 0,00Seconds 693000,00Kbytes/sec.
+Error opening local file defaults.
+200 PORT command successful
+150 Opening BINARY mode data connection for DynUi_en.qm
+226 Transfer complete.
+ftp: 6548 bytes sent in 0,02Seconds 409,25Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for file_directshow3_dll.dll
+226 Transfer complete.
+ftp: 110592 bytes sent in 1,66Seconds 66,78Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for Helix Mobile Producer.exe
+226 Transfer complete.
+ftp: 3530752 bytes sent in 58,44Seconds 60,42Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for helixprodctrl.dll
+226 Transfer complete.
+ftp: 720896 bytes sent in 9,39Seconds 76,76Kbytes/sec.
+Error opening local file help.
+200 PORT command successful
+150 Opening BINARY mode data connection for HMP11Pro-1654.lic
+226 Transfer complete.
+ftp: 1585 bytes sent in 0,00Seconds 1585000,00Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for hmprod.exe
+226 Transfer complete.
+ftp: 2875392 bytes sent in 47,61Seconds 60,40Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for JE_DLL.dll
+226 Transfer complete.
+ftp: 1194723 bytes sent in 22,33Seconds 53,51Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for JE_DLL_SSE.dll
+226 Transfer complete.
+ftp: 1190679 bytes sent in 21,13Seconds 56,36Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for job3.xsd
+226 Transfer complete.
+ftp: 40997 bytes sent in 0,00Seconds 40997000,00Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for libmmd.dll
+226 Transfer complete.
+ftp: 1658973 bytes sent in 30,22Seconds 54,90Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for msvcirt.dll
+226 Transfer complete.
+ftp: 77878 bytes sent in 2,22Seconds 35,10Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for msvcp60.dll
+226 Transfer complete.
+ftp: 401462 bytes sent in 7,50Seconds 53,53Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for msvcp71.dll
+226 Transfer complete.
+ftp: 499712 bytes sent in 9,91Seconds 50,45Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for msvcr71.dll
+226 Transfer complete.
+ftp: 348160 bytes sent in 5,75Seconds 60,55Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for msvcrt.dll
+226 Transfer complete.
+ftp: 278581 bytes sent in 7,03Seconds 39,62Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for pncrt.dll
+226 Transfer complete.
+ftp: 272896 bytes sent in 0,47Seconds 581,87Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for Qpl.dll
+226 Transfer complete.
+ftp: 180224 bytes sent in 0,28Seconds 639,09Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for qt-mt332.dll
+226 Transfer complete.
+ftp: 3629056 bytes sent in 51,03Seconds 71,11Kbytes/sec.
+Error opening local file rn.
+Error opening local file styles.
+200 PORT command successful
+150 Opening BINARY mode data connection for unins000.dat
+226 Transfer complete.
+ftp: 63973 bytes sent in 0,02Seconds 3998,31Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for unins000.exe
+226 Transfer complete.
+ftp: 639923 bytes sent in 6,20Seconds 103,16Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for xerces-c_2_5_0.dll
+226 Transfer complete.
+ftp: 2400256 bytes sent in 28,05Seconds 85,58Kbytes/sec.
+ftp> bye
+221 Goodbye.

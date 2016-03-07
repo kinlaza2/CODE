@@ -1,0 +1,27 @@
+
+<audience xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <version>11.0</version>
+
+  <audienceName>3gp82</audienceName>
+
+  <audienceAvgBitRate>82000</audienceAvgBitRate>
+
+  <information></information>
+
+  <audienceMaxBitRate>82000</audienceMaxBitRate>
+
+  <videoEncoder xsi:type="h263">
+    <level>Automatic</level>
+    <keyFramePeriodInMs>5000</keyFramePeriodInMs>
+    <maxFrameRate>12.500000</maxFrameRate>
+    <encodingComplexity>high</encodingComplexity>
+    <videoMode>smooth</videoMode>
+  </videoEncoder>
+
+  <audioEncoder xsi:type="amrnb">
+    <bitRate>7950</bitRate>
+    <useDTX>false</useDTX>
+  </audioEncoder>
+
+</audience>

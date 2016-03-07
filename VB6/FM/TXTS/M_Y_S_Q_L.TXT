@@ -1,0 +1,6 @@
+- MYSQL CLUSTER
+- FIND A GOOD TOLL FOR MYSQL ADMIN
+- MYSQL BASIC KNOWLEDGE
+mysql encoding oproblem
+
+

@@ -1,0 +1,7 @@
+- GREP - EGREP WITH REGEX.
+- AWK
+- SED
+- JOIN
+- CUT
+-PGREP, PKILL
+

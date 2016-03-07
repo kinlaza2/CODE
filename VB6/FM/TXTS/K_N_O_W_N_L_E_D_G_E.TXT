@@ -1,0 +1,54 @@
+- LINUX:
+- ti kanei to gem install sprockets
+- Yum install kai rpm. How they work?
+- search awk - sed
+- dig
+- SNMP
+- curl
+- wget
+- netstat
+- lsof
+- setup clustering with heartbeat - pacemaker
+- bonding se ethernet cards.
+- cluster se RHEL (the whole linux boxes.)
+- syslog server.
+- DRBD
+- NETWORK CARD BONDING
+- VM CLUSTER TECHNOLOGIES.
+- REDHAT CLUSTER
+- HEARTBEAT - PEACEMAKER.
+- CLUSTER SUITE - QUAROUM.
+
+
+
+IT:
+- LEARN WHAT IS DMZ AND FIREWALL ON NETWORKS. NAT
+- what exactly is router, modem, gateway, firewall, switch
+- BRIDGING ROUTERS THROUGH WIRELESS.
+- HOW c$ works.
+
+ORACLE:
+- oracle pfile spfile parameters
+
+JAVA:
+- tools of JVM like jhat, jstat kai genikotera ta monitoring commands pou exei h java kato apo to bin folder
+
+-ASE
+- SMPP DOCUMENTATION
+
+DB:
+- MYSQL
+- POSTGRESQL
+
+
+
+
+
+
+
+
+
+
+
+
+

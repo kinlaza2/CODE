@@ -1,0 +1,1 @@
+fsutil volume diskfree c: > diskspaceC.txt

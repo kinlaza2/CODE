@@ -1,0 +1,61 @@
+key=051ab6d644cd0a6b419a3e7164e4430a
+licenseGeneratorVersion=3-0
+reseller=realnetworks
+[hmprod]
+licenseSerial=1149629845719
+countLimit=0
+productdisplayName="Helix Mobile Producer Professional Edition"
+productdisplayName2="Helix Mobile Producer Professional Edition"
+productFamily="hmprod_pro"
+productVersion="547"
+productCode="hmprod"
+productMode="Demo"
+productLicensingLevel=8
+
+; the only parameter that could be changed for license generation
+productTimebomb="2007/05/31"
+
+productShowTrialLogo=true
+productMaximumVideoBitRate=384000
+productMaximumVideoEncodingWidth=352
+productMaximumVideoEncodingHeight=288
+productMaximumVideoBitRateForRealMedia=99999999
+productMaximumVideoEncodingWidthForRealMedia=2048
+productMaximumVideoEncodingHeightForRealMedia=2048
+
+
+productnbModules=6
+productmodule.name1="fileInput"
+productmodule.name2="captureInput"
+productmodule.name3="broadcastOutput"
+productmodule.name4="cmdline"
+productmodule.name5="snmp"
+productmodule.name6="batchprocessor"
+
+
+; BEGIN ignore (for compatibility reasons)
+productType="demo"
+productEvaluationPeriod="none"
+productOS="win32"
+; END ignore (for compatibility reasons)
+
+
+;description of modules
+[fileInput]
+moduledisplayName="fileInput"
+modulelicensingcontext="hmprod"
+[captureInput]
+moduledisplayName="captureInput"
+modulelicensingcontext="hmprod"
+[broadcastOutput]
+moduledisplayName="broadcastOutput"
+modulelicensingcontext="hmprod"
+[cmdline]
+moduledisplayName="cmdline"
+modulelicensingcontext="hmprod"
+[snmp]
+moduledisplayName="snmp"
+modulelicensingcontext="hmprod"
+[batchprocessor]
+moduledisplayName="batchprocessor"
+modulelicensingcontext="hmprod"

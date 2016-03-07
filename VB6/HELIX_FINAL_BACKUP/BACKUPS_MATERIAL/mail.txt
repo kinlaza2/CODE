@@ -1,0 +1,171 @@
+FYI
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+From: DIMAS NIKOS [mailto:N.DIMAS@tim.gr] 
+Sent: Wednesday, April 18, 2007 9:32 AM
+To: George Achillias
+Cc: Ioannis Papadopoulos; Technical Support
+Subject: RE: FTP account for Cartoon Network
+
+ 
+
+George,
+
+ 
+
+Please find bellow the configuration, for Real Media and 3gp encoding, that we currently use.
+
+ 
+
+Real Media
+
+High
+Constant Bit Rate: 82bps
+Target Frame Rate: 10fps
+Voice Codec: 6.5Kbps – RealAudio
+Music Codec: 11Kbps Music – RealAudio
+
+ 
+
+Low
+Constant Bit Rate: 25Kbps
+Target Frame Rate: 8fps
+Voice Codec: 8.5Kbps – RealAudio
+Music Codec: 8Kbps Music – RealAudio
+
+
+3gp
+High
+
+Target Bit Rate: 82Kbps
+Audio Codec: AMR-NB
+Audio Bit Rate: 7.95Kbps
+Video Codec: H.263
+Video Bit Rate: 74.05Kbps (Target – Audio)
+Video Codec Level: Automatic
+Max Keyframe Distance: 5000 milliseconds
+Frame Rate: 12.5fps
+Encoding Complexity: High
+Video Mode: Smoothest Motion
+
+Low
+Target Bit Rate: 26Kbps
+Audio Codec: AMR-NB
+Audio Bit Rate: 7.4Kbps
+Video Codec: H.263
+Video Bit Rate: 18.6Kbps (Target – Audio)
+Video Codec Level: Automatic
+Max Keyframe Distance: 5000 milliseconds
+Frame Rate: 8fps
+Encoding Complexity: High
+Video Mode: Smoothest Motion
+
+ 
+I hope that these are helpful.
+
+ 
+
+BR/Nikos
+
+ 
+
+ 
+
+-----Original Message-----
+From: George Achillias [mailto:gachillias@velti.com] 
+Sent: Wednesday, April 11, 2007 12:25 PM
+To: DIMAS NIKOS
+Cc: Ioannis Papadopoulos; Technical Support
+Subject: RE: FTP account for Cartoon Network
+
+ 
+
+NiKolas,
+
+Thank you very much for the account.
+
+Regarding Cartoon network, I am still waiting from you an email about rates and Kb
+
+BR
+
+ 
+
+/G
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+From: DIMAS NIKOS [mailto:N.DIMAS@tim.gr] 
+Sent: Wednesday, April 11, 2007 12:05 PM
+To: George Achillias
+Cc: Ioannis Papadopoulos; Technical Support
+Subject: RE: FTP account for Cartoon Network
+
+ 
+
+George,
+
+ 
+
+User: Velti
+
+Passwd: ftpv3lt1
+
+ 
+
+The IP you should use for connecting on our FTP server is 212.152.70.17
+
+ 
+
+BR/Nikos
+
+ 
+
+ 
+
+-----Original Message-----
+From: George Achillias [mailto:gachillias@velti.com] 
+Sent: Thursday, April 05, 2007 2:50 PM
+To: DIMAS NIKOS
+Cc: Ioannis Papadopoulos; Technical Support
+Subject: FTP account for Cartoon Network
+
+ 
+
+Dear Nikos,
+
+Please provide us with an FTP account for Cartoon Network
+
+ 
+
+Thank you in advance
+
+ 
+
+BR
+
+ 
+
+George P. Achillias
+
+Project Manager
+
+ 
+
+Velti
+
+tel.: +30 210 63 78 937
+fax: +30 210 63 78 888
+
+email: gachillias@velti.com
+web: www.velti.com  
+
+www.velti.com/ 
+
+ 

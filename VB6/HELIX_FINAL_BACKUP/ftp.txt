@@ -1,0 +1,5 @@
+velti
+ftpv3lt1
+bin
+mput *.*
+bye

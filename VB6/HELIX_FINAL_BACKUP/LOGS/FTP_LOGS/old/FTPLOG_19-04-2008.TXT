@@ -1,0 +1,19 @@
+Connected to 212.152.70.17.
+220 ProFTPD 1.3.0a Server (ProFTPD Default Installation) [10.9.113.39]
+User (212.152.70.17:(none)): 
+331 Password required for velti.
+
+230 User velti logged in.
+ftp> bin
+200 Type set to I
+ftp> mput *.*
+200 PORT command successful
+150 Opening BINARY mode data connection for 26_2g.3gp
+226 Transfer complete.
+ftp: 30255301 bytes sent in 170,58Seconds 177,37Kbytes/sec.
+200 PORT command successful
+150 Opening BINARY mode data connection for 82_3g.3gp
+226 Transfer complete.
+ftp: 67233721 bytes sent in 445,91Seconds 150,78Kbytes/sec.
+ftp> bye
+221 Goodbye.

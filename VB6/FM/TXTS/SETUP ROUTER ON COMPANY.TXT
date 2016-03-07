@@ -1,0 +1,18 @@
+- ADD ELENIS PORT.
+- FIND A WAY A NAME RESOLUTION TO GO ON INTERNAL IP FROM CD AND ON EXTERNAL IP THROUGH EXTERNAL ACCESS.
+- Configure mail on LOG.
+- Configure a log server
+
+
+
+
+
+
+SECOND LINE:
+- na bro an exo support apo CISCO.
+- An nai na rothso Cisco an mporei na bohthisei me problem se OTE.
+- An den bro akri apo CISCO na allakso to username/passwd tis OTE.
+
+
+
+

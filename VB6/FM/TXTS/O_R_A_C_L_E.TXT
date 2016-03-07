@@ -1,0 +1,13 @@
+- CHECK TABLESPACE ISSUE ON LIVE
+- ORACLE MONITORING TOOLS
+- ORACLE SILENT INSTALL
+- SETUP ORACLE ON STAGING
+- ORACLE RAC INSTALLATION
+	- create 2 vm
+	- install oracle rac 10g
+	- erase 10g
+	- install 11g
+
+
+
+

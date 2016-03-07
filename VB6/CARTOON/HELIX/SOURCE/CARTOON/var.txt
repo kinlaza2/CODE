@@ -1,0 +1,77 @@
+FLAGSTARTPROCEDURE  thetei oti h diadikasia ksekinise kai trekse toys ypoloipoys elegxoys
+
+STARTPROCEDURE_MAIL  body tou arxikou mail
+
+AVI_EXIST_MAIL  mynhma sxetiko me exist avi
+AVI_SIZE_MAIL   mynhma sxetiko me size avi
+FLAG_AVI        dylonei katastash toy avi
+
+
+EXIST_263GP_MAIL mynhma sxetiko me exist 263gp
+SIZE_263GP_MAIL  mynhma sxetiko me size 263gp
+FLAG_263GP       dylonei katastash toy 263gp
+
+EXIST_823GP_MAIL  mynhma sxetiko me exist 823gp
+SIZE_823GP_MAIL   mynhma sxetiko me size 823gp
+FLAG_823GP        dylonei katastash toy 823gp
+
+EXIST_25RM_MAIL  mynhma sxetiko me exist 25rm
+SIZE_25RM_MAIL  mynhma sxetiko me size 25rm
+FLAG_25RM       dylonei katastash toy 25rm
+
+EXIST_82RM_MAIL  mynhma sxetiko me exist 82rm
+SIZE_82RM_MAIL   mynhma sxetiko me size 82rm
+FLAG_82RM       dylonei katastash toy 82rm
+
+
+SENDMAILNOW  steile tora to text10 san mail
+SENDINITIALMAILNOW steile tora to arciko san mail
+FLAG_INCLUDE_RM  an ypodtirixo rm
+TEMP_ORA         gia epidtrofh apo synarthsh
+TEMP_minute      gia epidtrofh apo synarthsh
+
+AVI_PATH         xrisimopoeiite gia egrafh bash
+FILES_PATH       xrisimopoeiite gia egrafh bash
+
+INITIAL_MESSAGE_MAIL_CAPTION caption toy initial
+INITIAL_MESSAGE_MAIL body toy initial
+
+
+MAIL_CAPTION
+
+START_APPLICATION_CAPTION_MAIL CAPTION SE MAIK THAT APPLICATION IS UP
+START_APPLICATION_BODY_MAIL    BODY SE MAIK THAT APPLICATION IS UP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
