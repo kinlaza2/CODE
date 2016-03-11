@@ -21,7 +21,7 @@ fi
 
 /bin/echo -e "`date` || RECORDS FOR $TWO_DAYS_AGO_PATTERN WILL BE DELETED" >> $LOG_FILE
 
-/bin/echo -e " select *   from dlr where ts like '____________AAAAA____________';  " | /home/kannel/MYSQL_5_5_23/bin/replace AAAAA  $TWO_DAYS_AGO_PATTERN > $SCRIPT_PATH/TEMPO.sql
+/bin/echo -e " delete   from dlr where ts like '____________AAAAA____________';  " | /home/kannel/MYSQL_5_5_23/bin/replace AAAAA  $TWO_DAYS_AGO_PATTERN > $SCRIPT_PATH/TEMPO.sql
 $MYSQLPATH  -u root -pCDialogues123enter -D KANNEL_DB < $SCRIPT_PATH/TEMPO.sql >> $LOG_FILE
 
 /bin/echo -e "`date` || ######                       PROCESS END FOR `date`                                  #####" >> $LOG_FILE
