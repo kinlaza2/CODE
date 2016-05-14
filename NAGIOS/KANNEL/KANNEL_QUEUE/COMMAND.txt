@@ -1,0 +1,5 @@
+# 'check_remote_kannel_status_queue' command definition
+define command{
+        command_name    check_remote_kannel_status_queue
+        command_line    $USER1$/CUSTOM/GATEWAY_KANNEL_KANNEL2/check_remote_kannel_status_queue $HOSTADDRESS$ $ARG1$ $ARG2$
+}
