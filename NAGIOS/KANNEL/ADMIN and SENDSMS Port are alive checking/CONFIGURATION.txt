@@ -1,0 +1,24 @@
+define service{
+        use     generic-service
+        host_name                       gateway_commonip_int
+        service_description             [GATEWAY USER] ADMIN and SENDSMS Port are alive checking
+        display_name                    [GATEWAY USER] ADMIN and SENDSMS Port are alive checking ON LIVE SERVERs
+        is_volatile                     0
+        initial_state                   u
+        max_check_attempts              3       ###define the number of times that Nagios will retry the check if it returnsany state other than an OK
+        check_interval                  3
+        retry_interval                  3       ###define the number of "time units" to wait before schedule a re-check of the service on an non ok state
+        active_checks_enabled           1
+        passive_checks_enabled          1
+        check_period                    24x7
+        flap_detection_enabled          0
+        retain_status_information       1
+        retain_nonstatus_information    1
+        notification_interval           3       ###define number of "time units" wait before re-notifying a contact that service still in a non-OK state
+        first_notification_delay        1       ###"time units" wait before sending out first problem notification when  service on a non-OK state
+        notification_period             24x7
+        notification_options            w,u,c,r,f,s
+        notifications_enabled           1
+        contact_groups                  24x7_SUPPORT, 24x7_SUPPORT_PHONE
+        check_command                   check_tcp_remote_kannel!gatewayserver!14000!14014
+}

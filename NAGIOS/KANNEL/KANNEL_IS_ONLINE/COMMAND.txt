@@ -1,0 +1,5 @@
+# 'check_remote_kannel_status_SMSC_are_online' command definition
+define command{
+        command_name    check_remote_kannel_status_SMSC_are_online
+        command_line    $USER1$/CUSTOM/GATEWAY_KANNEL_KANNEL2/check_remote_kannel_status_SMSC_are_online   $HOSTADDRESS$ $ARG1$ $ARG2$
+}

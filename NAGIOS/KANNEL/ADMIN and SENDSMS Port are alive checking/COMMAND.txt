@@ -1,0 +1,5 @@
+# 'check_tcp_remote_membase' command definition
+define command{
+        command_name    check_tcp_remote_kannel
+        command_line    $USER1$/CUSTOM/check_tcp_remote_kannel $HOSTADDRESS$ $ARG1$ $ARG2$ $ARG3$
+}
